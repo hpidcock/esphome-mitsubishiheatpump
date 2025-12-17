@@ -57,7 +57,7 @@ bool MitsubishiHeatPump::verify_serial() {
         return false;
     }
 
-#ifdef USE_LOGGER && !defined(USE_ESP32)
+#if defined(USE_LOGGER) && !defined(USE_ESP32)
     if (this->get_hw_serial_() == logger::global_logger->get_hw_serial()) {
         ESP_LOGW(TAG, "  You're using the same serial port for logging"
                 " and the MitsubishiHeatPump component. Please disable"
